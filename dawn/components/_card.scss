@@ -1,8 +1,11 @@
+@use 'sass:math';
+
 .card {
   display: block;
   padding: $base-padding;
   border: $base-border-thickness solid #ddd;
   box-shadow: $base-box-shadow;
+  border-radius: math.div($base-border-radius, 4);
 
   .card-title {
     font-size: $base-font-size;
@@ -11,7 +14,7 @@
   }
 
   .card-body {
-    font-size: $base-font-size;
+    font-size: $font-size-lg;
 
     a {
       text-decoration: underline;
@@ -19,3 +22,6 @@
   }
 }
 
+@debug "Hello Malitha";
+@debug math.floor(2.7);
+@debug math.max(1px, 20px, 67px, 19px);
