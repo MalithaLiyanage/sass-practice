@@ -1,0 +1,29 @@
+// Adding a % will make the class a placeholder and will not create a css class for it (flex-layout)
+%flex-layout {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  
+  // Apply the properties of flex layout to navbar more like mixin
+  // But we dont give input args in extend
+  .navbar {
+    @extend %flex-layout;
+    padding: $base-padding $base-padding * 2;
+    box-shadow: $base-box-shadow;
+    .site-title {
+      font-size: $font-size-lg;
+    }
+    .container {
+      @extend %flex-layout;
+    }
+  }
+  
+  @each $key, $val in $colors {
+    .navbar-#{$key} {
+      @extend .navbar;
+      background-color: $val;
+    }
+  }
